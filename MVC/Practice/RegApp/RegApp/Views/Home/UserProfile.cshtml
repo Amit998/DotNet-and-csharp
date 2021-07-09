@@ -1,0 +1,182 @@
+﻿@model RegApp.tbl_User
+
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/CustomStyleSheet/ProfileStyleSheet.css" rel="stylesheet" />
+</head>
+
+@using (Html.BeginForm("UserProfile", "Home", FormMethod.Post,new { @class="form-horizontal" }))
+{
+
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-md-4">
+                <div class="user-profile-image">
+
+                    <input type="file"  class="hidden"/>
+
+                    <img src="~/Images/no_image.jpg" class="img-responsive" />
+
+                    <div class="upload-photo">
+                        <img src="~/Images/COVID-Vaccines2.png" class="img-responsive"/>
+                    </div>
+
+                    <div class="remove-photo">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-8">
+
+                @Html.HiddenFor(model => model.UserId)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(model => model.Gender, "Male", new { @name = "gender" })
+                            Male
+
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(model => model.Gender, "Female", new { @name = "gender" })
+                            Female
+
+                        </label>
+
+                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Intrestes</label>
+
+                    <div class="col-md-10">
+                        <label class="checkbox-inline">
+
+                            @Html.CheckBox("Java", Model.isIntrestedInJava.Value)
+
+                            Java
+
+
+                        </label>
+
+                        <label class="checkbox-inline">
+
+                            @if (Model.isIntrestedInPython == true)
+                            {
+                                @Html.CheckBox("Python", true);
+
+                            }
+                            else
+                            {
+                                @Html.CheckBox("Python", false);
+                            }
+                            Python
+
+
+                        </label>
+
+                        <label class="checkbox-inline">
+
+                            @if (Model.isIntrestedInCSharp == true)
+                            {
+                                @Html.CheckBox("CSharp", true);
+
+                            }
+                            else
+                            {
+                                @Html.CheckBox("CSharp", false);
+                            }
+                            C#
+
+
+                        </label>
+
+
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="checkbox-inline">
+                        City
+                    </label>
+
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(Model => Model.cityId, Model.CityList as SelectList, "--Select City--", new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+
+               <div class="form-group">
+                    @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                         @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control date datetimepicker" } })
+                        @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                        
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Edit" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+}
+
+

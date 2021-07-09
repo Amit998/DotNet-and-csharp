@@ -1,0 +1,13 @@
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\bin\Debug\netcoreapp3.1\linkedList.exe
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\bin\Debug\netcoreapp3.1\linkedList.deps.json
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\bin\Debug\netcoreapp3.1\linkedList.runtimeconfig.json
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\bin\Debug\netcoreapp3.1\linkedList.runtimeconfig.dev.json
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\bin\Debug\netcoreapp3.1\linkedList.dll
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\bin\Debug\netcoreapp3.1\linkedList.pdb
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\obj\Debug\netcoreapp3.1\linkedList.csproj.AssemblyReference.cache
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\obj\Debug\netcoreapp3.1\linkedList.AssemblyInfoInputs.cache
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\obj\Debug\netcoreapp3.1\linkedList.AssemblyInfo.cs
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\obj\Debug\netcoreapp3.1\linkedList.csproj.CoreCompileInputs.cache
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\obj\Debug\netcoreapp3.1\linkedList.dll
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\obj\Debug\netcoreapp3.1\linkedList.pdb
+D:\nagarro\DS & Algo\assignment1\linkedList\linkedList\obj\Debug\netcoreapp3.1\linkedList.genruntimeconfig.cache

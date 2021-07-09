@@ -1,0 +1,59 @@
+﻿body {
+    background-color: #f7f7f7;
+}
+
+
+#LoginFormLayout
+ {
+    background-color: #ffff;
+    padding: 40px 50px;
+    margin-top: 20px;
+}
+
+#LoginForm #LoginFormLayout {
+    padding-top: 0;
+    padding-left: 40px;
+}
+
+    #LoginForm #LoginFormLayout h3 {
+        margin: 0px;
+        margin-bottom: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+#LoginForm #LoginFormImage {
+    border-left: 1px solid #ddd;
+}
+
+#LoginForm #LoginFormLayout input[type="text"] {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-bottom: 1px solid #000000;
+}
+
+#LoginForm #LoginFormLayout input[type="submit"] {
+    background-color: #418ab4;
+    border-radius: 50px;
+    height: 40px;
+    width: 120px;
+}
+
+    #LoginForm #LoginFormLayout input[type="submit"]:hover {
+        background-color: #b6ff00;
+        border-radius: 50px;
+        height: 40px;
+        width: 120px;
+    }
+
+#LoginForm #LoginFormLayout .input-group-addon {
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    padding: 0;
+    padding-left: 5px;
+}

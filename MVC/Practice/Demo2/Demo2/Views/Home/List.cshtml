@@ -1,0 +1,53 @@
+﻿@model IEnumerable<tbl_Category>
+
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<script>
+
+    function confirmDelete() {
+
+
+        return confirm('Are You Sure,You Want to delete this record??');
+
+    }
+
+</script>
+
+
+<h2>List</h2>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Function</th>
+    </tr>
+
+
+    @foreach (var item in ViewBag.List)
+    {
+
+<tr>
+   
+    <td>@item.Name</td>
+    <td>@item.Description</td>
+    <td>@item.CategoryName</td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", "Home", new { id = @item.CategoryId }, htmlAttributes: new { @class = "btn btn-primary" })
+        @Html.ActionLink("Delete", "Delete", "Home", new { id = @item.CategoryId }, htmlAttributes: new { @class = "btn btn-danger",onClick= "return confirmDelete()" })
+
+    </td>
+</tr>
+
+    }
+
+
+
+</table>

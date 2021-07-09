@@ -1,0 +1,50 @@
+﻿@model IEnumerable<RegApp.tbl_User>
+
+@{
+    ViewBag.Title = "ListUser";
+}
+
+<h2>ListUser</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.UserName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Password)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "UserProfile", new { id = item.UserId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+    </td>
+</tr>
+}
+
+</table>
