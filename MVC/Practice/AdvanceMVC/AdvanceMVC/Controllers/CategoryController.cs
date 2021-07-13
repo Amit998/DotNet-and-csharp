@@ -10,6 +10,7 @@ namespace AdvanceMVC.Controllers
     {
         WebAppDbEntities db = new WebAppDbEntities();
         // GET: Category
+        [Authorize(Roles ="U")]
         public ActionResult Index()
         {
 
@@ -61,9 +62,7 @@ namespace AdvanceMVC.Controllers
             }
             
 
-           
-
-
+   
         }
 
 

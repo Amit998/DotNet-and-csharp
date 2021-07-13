@@ -10,5 +10,22 @@
   </EntityType>
   <EntityContainer Name="WebAppDbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tbl_category_2" EntityType="Self.tbl_category_2" />
+    <EntitySet Name="tbl_User" EntityType="WebAppModel.tbl_User" />
   </EntityContainer>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="isIntrestedInJava" Type="Boolean" />
+    <Property Name="isIntrestedInCSharp" Type="Boolean" />
+    <Property Name="isIntrestedInPython" Type="Boolean" />
+    <Property Name="cityId" Type="Int32" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

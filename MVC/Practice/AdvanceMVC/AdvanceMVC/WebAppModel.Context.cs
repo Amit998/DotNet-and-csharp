@@ -26,5 +26,6 @@ namespace AdvanceMVC
         }
     
         public virtual DbSet<tbl_category_2> tbl_category_2 { get; set; }
+        public virtual DbSet<tbl_User> tbl_User { get; set; }
     }
 }

@@ -1,8 +1,105 @@
-﻿
-@{
-    ViewBag.Title = "_AdminLayout";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿﻿﻿
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Admin View</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<h2>_AdminLayout</h2>
 
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+
+
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <ul class="nav navbar-nav">
+
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Account/Login">Login</a>
+                    </li>
+ }
+                                else
+                                {
+
+
+                                    <li class="nav-item"><a class="nav-link" href="/Admin/Index">Admin </a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/Category/Index">Common View</a></li>
+                                if (User.IsInRole("A"))
+                                {
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Admin/AddUser">Add User</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Admin/listUser">List User</a>
+                                    </li>
+                                 }
+
+
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Account/Logout">Logout</a>
+                                </li>
+
+                             
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">@User.Identity.Name</a>
+                                </li>
+                                }
+
+                    </ul>
+  
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+
+    </div>
+
+
+    <footer class="page-footer font-small" style="background-color:black; color:snow;">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            © 2021 Copyright:
+            <a href="#" style="color:snow;">Amit Dutta</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+
+
+
+
+
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+
+</body>
+</html>
