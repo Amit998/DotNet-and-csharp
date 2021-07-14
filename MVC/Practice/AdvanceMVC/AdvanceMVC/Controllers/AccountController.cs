@@ -25,7 +25,7 @@ namespace AdvanceMVC.Controllers
 
             if(isUserExists != null)
             {
-                FormsAuthentication.SetAuthCookie(user.UserName,false);
+                FormsAuthentication.SetAuthCookie(user.UserName,true);
                 return RedirectToAction("Index","Admin");
 
             }

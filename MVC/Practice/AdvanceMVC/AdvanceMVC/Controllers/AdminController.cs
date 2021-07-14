@@ -21,10 +21,6 @@ namespace AdvanceMVC.Controllers
             return View();
         }
 
-
-
-
-
         [Authorize(Roles = "A")]
         public ActionResult AddUser()
         {
@@ -40,12 +36,43 @@ namespace AdvanceMVC.Controllers
             return RedirectToAction("Index");
         }
 
-
-        public ActionResult listUser(string SortOrder,string SortBy)
+        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+        public ActionResult listUser(string searchText, string SortOrder, string SortBy, int pageNumber = 1)
         {
             var users = db.tbl_User.ToList();
 
             ViewBag.SortOrder = SortOrder;
+            ViewBag.SortBy = SortBy;
+
+            if (searchText != null)
+            {
+                users = db.tbl_User.Where(x => x.UserName.Contains(searchText)).ToList();
+                users = ApplySorting(SortOrder, SortBy, users);
+                users = ApplyPagination(users, pageNumber);
+
+
+            }
+            else
+            {
+                users = ApplySorting(SortOrder, SortBy, users);
+                users = ApplyPagination(users, pageNumber);
+
+            }
+
+
+
+            return View(users);
+
+        }
+
+       
+        
+
+        [HttpPost]
+        
+
+        public List<tbl_User> ApplySorting(string SortOrder, string SortBy, List<tbl_User> users)
+        {
 
             switch (SortBy)
             {
@@ -94,28 +121,27 @@ namespace AdvanceMVC.Controllers
                         break;
                     }
                 default:
-                    
+
                     break;
-                    
+
+
             }
 
-            return View(users);
+            return users;
+        
         }
 
-        [HttpPost]
-        public ActionResult listUser(string searchText)
+        public List<tbl_User> ApplyPagination(List<tbl_User> users,int pageNumber)
         {
+            ViewBag.TotalPages = Math.Ceiling(users.Count() / 2.0);
+            ViewBag.PageNumber = pageNumber;
 
-            var users = db.tbl_User.ToList();
-
-
-            if(searchText != null)
-            {
-                users = db.tbl_User.Where(x => x.UserName.Contains(searchText)).ToList();
-            }
-
-            return View(users);
+            users = users.Skip((pageNumber - 1) * 2).Take(2).ToList();
+            
+            return users;
         }
+
+
 
     }
 }
