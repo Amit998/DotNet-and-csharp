@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DevOpsAssignment.Models.StudentModel>
+
+@{
+    ViewData["Title"] = "ViewList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ViewList</h1>
+
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentCourse)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentBatch)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentEmail)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentCourse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentBatch)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.StudnetId }, new { @class = "btn btn-success" })
+                    <br />
+                    @Html.ActionLink("Details", "Details", new { id = item.StudnetId }, new { @class = "btn btn-primary" })
+                    <br />
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StudnetId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
